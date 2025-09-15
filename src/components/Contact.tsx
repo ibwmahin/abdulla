@@ -24,7 +24,7 @@ export function Contact() {
         'service_li5izpc',
         'template_2ag350j',
         formData,
-        'GWvjXulV3i2NZJ5jo'
+        'wG8px5150C96d09F3'
       );
       alert('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
