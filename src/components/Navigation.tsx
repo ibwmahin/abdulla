@@ -19,13 +19,25 @@ export function Navigation() {
           @ibwmahin
         </motion.div>
         
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-        >
-          <ThemeToggle />
-        </motion.div>
+        <div className="flex items-center gap-4">
+          <motion.a
+            href="#"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
+            className="text-sm font-medium bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 hover:bg-accent/50 transition-all duration-300 hover:scale-105"
+          >
+            Blog
+          </motion.a>
+          
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          >
+            <ThemeToggle />
+          </motion.div>
+        </div>
       </div>
     </motion.nav>
   );

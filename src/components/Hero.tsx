@@ -29,14 +29,10 @@ export function Hero() {
             </div>
             
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight">
-              Frontend
-              <br />
-              <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                Developer
-              </span>
+              Abdulla Al Mahin
               <br />
               <span className="text-muted-foreground text-2xl sm:text-3xl lg:text-4xl font-light">
-                & Writer
+                Frontend Developer & Writer
               </span>
             </h1>
             
@@ -66,7 +62,7 @@ export function Hero() {
                   asChild
                   className="h-10 w-10 rounded-full p-0 border-border bg-background/50 backdrop-blur-sm hover:bg-accent hover:scale-105 transition-all"
                 >
-                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
                     <link.icon className="h-4 w-4" />
                     <span className="sr-only">{link.label}</span>
                   </a>
@@ -86,7 +82,7 @@ export function Hero() {
           <div className="relative rounded-2xl overflow-hidden shadow-strong">
             <img 
               src={profileImage} 
-              alt="Mahin - Frontend Developer & Writer"
+              alt="Abdulla Al Mahin - Frontend Developer & Writer"
               className="w-full h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
