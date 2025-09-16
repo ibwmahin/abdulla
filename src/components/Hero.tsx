@@ -31,7 +31,7 @@ export function Hero() {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight">
               Abdulla Al Mahin
               <br />
-              <span className="bg-gradient-to-br from-primary via-accent to-primary bg-clip-text text-transparent text-2xl sm:text-3xl lg:text-4xl font-light">
+              <span className="text-muted-foreground text-2xl sm:text-3xl lg:text-4xl font-light">
                 Frontend Developer & Writer
               </span>
             </h1>
