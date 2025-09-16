@@ -14,7 +14,7 @@ export function Navigation() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="text-lg font-medium bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2"
+          className="text-lg font-medium bg-card/90 backdrop-blur-xl border border-border rounded-2xl px-6 py-3 shadow-soft"
         >
           @ibwmahin
         </motion.div>
@@ -25,7 +25,7 @@ export function Navigation() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.15, duration: 0.4 }}
-            className="text-sm font-medium bg-card/80 backdrop-blur-sm border border-border rounded-full px-4 py-2 hover:bg-accent/50 transition-all duration-300 hover:scale-105"
+            className="text-sm font-medium bg-card/90 backdrop-blur-xl border border-border rounded-2xl px-6 py-3 hover:bg-accent/20 hover:shadow-soft transition-all duration-300 hover:scale-[1.02]"
           >
             Blog
           </motion.a>

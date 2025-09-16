@@ -31,7 +31,7 @@ export function Hero() {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight">
               Abdulla Al Mahin
               <br />
-              <span className="text-muted-foreground text-2xl sm:text-3xl lg:text-4xl font-light">
+              <span className="bg-gradient-to-br from-primary via-accent to-primary bg-clip-text text-transparent text-2xl sm:text-3xl lg:text-4xl font-light">
                 Frontend Developer & Writer
               </span>
             </h1>
@@ -56,11 +56,11 @@ export function Hero() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.3 }}
               >
-                <Button
+                 <Button
                   variant="outline"
                   size="sm"
                   asChild
-                  className="h-10 w-10 rounded-full p-0 border-border bg-background/50 backdrop-blur-sm hover:bg-accent hover:scale-105 transition-all"
+                  className="h-10 w-10 rounded-2xl p-0 border-border bg-card/90 backdrop-blur-xl hover:bg-accent/20 hover:shadow-soft transition-all duration-300 hover:scale-[1.02]"
                 >
                   <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
                     <link.icon className="h-4 w-4" />
@@ -79,13 +79,13 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative max-w-md mx-auto"
         >
-          <div className="relative rounded-2xl overflow-hidden shadow-strong">
+          <div className="relative rounded-3xl overflow-hidden shadow-premium">
             <img 
               src={profileImage} 
               alt="Abdulla Al Mahin - Frontend Developer & Writer"
               className="w-full h-auto object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent"></div>
           </div>
           
           {/* Floating badge */}
@@ -93,7 +93,7 @@ export function Hero() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
-            className="absolute -bottom-4 -right-4 bg-card border border-border rounded-full px-4 py-2 shadow-soft backdrop-blur-sm"
+            className="absolute -bottom-4 -right-4 bg-card/90 backdrop-blur-xl border border-border rounded-2xl px-6 py-3 shadow-premium"
           >
             <span className="text-sm font-medium">Available for hire</span>
           </motion.div>

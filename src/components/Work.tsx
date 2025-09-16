@@ -68,7 +68,7 @@ export function Work() {
               viewport={{ once: true }}
               className="group"
             >
-              <Card className="p-6 border-border bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-300 hover:scale-[1.02] h-full flex flex-col">
+              <Card className="p-8 border-border bg-card/90 backdrop-blur-xl hover:bg-card/95 hover:shadow-premium transition-all duration-500 hover:scale-[1.02] h-full flex flex-col rounded-3xl">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
                     {project.title}

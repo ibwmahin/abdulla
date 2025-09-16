@@ -55,10 +55,12 @@ export default {
       backgroundImage: {
         'hero-gradient': 'var(--hero-gradient)',
         'text-gradient': 'var(--text-gradient)',
+        'accent-gradient': 'var(--accent-gradient)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'strong': 'var(--shadow-strong)',
+        'premium': 'var(--shadow-premium)',
       },
       borderRadius: {
         lg: "var(--radius)",
