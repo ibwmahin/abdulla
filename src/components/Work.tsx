@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
@@ -38,16 +43,75 @@ const projects = [
 ];
 
 export function Work() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Title animation on scroll
+      gsap.fromTo(titleRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      // Project cards stagger animation
+      gsap.fromTo(projectsRef.current?.children || [],
+        { opacity: 0, y: 60, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "back.out(1.2)",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: projectsRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const handleCardHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      y: -8,
+      scale: 1.02,
+      duration: 0.3,
+      ease: "power2.out",
+      boxShadow: "0 20px 60px rgba(23, 5, 54, 0.3)"
+    });
+  };
+
+  const handleCardLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      y: 0,
+      scale: 1,
+      duration: 0.3,
+      ease: "power2.out",
+      boxShadow: "0 8px 40px rgba(0, 0, 0, 0.15)"
+    });
+  };
+
   return (
-    <section className="py-20 px-6">
+    <section ref={sectionRef} className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center space-y-8 mb-16"
-        >
+        <div ref={titleRef} className="text-center space-y-8 mb-16">
           <h2 className="text-3xl lg:text-5xl font-light">
             Selected <span className="text-muted-foreground">Work</span>
           </h2>
@@ -56,27 +120,25 @@ export function Work() {
             A collection of projects showcasing modern web development, 
             AI integration, and user-centered design principles.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={projectsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <motion.div
+            <div
               key={project.title}
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
               className="group"
+              onMouseEnter={handleCardHover}
+              onMouseLeave={handleCardLeave}
             >
-              <Card className="p-8 border-border bg-card/90 backdrop-blur-xl hover:bg-card/95 hover:shadow-premium transition-all duration-500 hover:scale-[1.02] h-full flex flex-col rounded-3xl">
+              <Card className="p-8 glass-card hover:bg-accent/5 transition-all duration-300 h-full flex flex-col rounded-3xl border-0">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+                  <h3 className="font-semibold text-lg group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
                   {project.isGithub ? (
-                    <Github className="h-5 w-5 text-muted-foreground" />
+                    <Github className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors" />
                   ) : (
-                    <ExternalLink className="h-5 w-5 text-muted-foreground" />
+                    <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors" />
                   )}
                 </div>
                 
@@ -88,7 +150,7 @@ export function Work() {
                   asChild
                   variant="outline"
                   size="sm"
-                  className="w-full border-border hover:bg-accent transition-all"
+                  className="w-full glass border-0 hover:bg-accent/20 hover:text-accent transition-all duration-300"
                 >
                   <a
                     href={project.url}
@@ -105,7 +167,7 @@ export function Work() {
                   </a>
                 </Button>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

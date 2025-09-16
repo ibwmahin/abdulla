@@ -55,7 +55,7 @@ export default {
       backgroundImage: {
         'hero-gradient': 'var(--hero-gradient)',
         'text-gradient': 'var(--text-gradient)',
-        'accent-gradient': 'var(--accent-gradient)',
+        'premium-gradient': 'var(--premium-gradient)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',

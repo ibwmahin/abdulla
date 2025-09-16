@@ -27,7 +27,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="sm"
       onClick={() => setIsDark(!isDark)}
-      className="h-10 w-10 rounded-2xl border border-border bg-card/90 backdrop-blur-xl transition-all duration-300 hover:bg-accent/20 hover:shadow-soft hover:scale-[1.02]"
+      className="h-10 w-10 rounded-2xl glass transition-all duration-300 hover:bg-accent/20 hover:shadow-soft hover:scale-[1.02]"
     >
       {isDark ? (
         <Sun className="h-4 w-4 transition-transform" />
